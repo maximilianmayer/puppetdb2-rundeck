@@ -1,5 +1,5 @@
-FROM ruby:2.2.1
-MAINTAINER Toby Jackson <toby@warmfusion.co.uk>
+FROM ruby:2.3.4
+MAINTAINER Maxmilian Mayer <mayer.maximilian@googlemail.com>
 
 # Install gems
 ENV APP_HOME /app
@@ -18,4 +18,5 @@ ENV PUPPET_URL http://puppet:3030
 ENV CACHE_SECONDS 300
 
 EXPOSE 3000
-CMD ["ruby", "puppetdb-rundeck.rb"]
+#CMD ["ruby", "puppetdb-rundeck.rb"]
+CMD ["rackup", "-s" , "puma" , "-p", "3000"]
