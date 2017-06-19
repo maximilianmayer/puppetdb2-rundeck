@@ -47,7 +47,7 @@ class PuppetDB
 
   def get_resources
     puppetdb_resource_query = {'query'=>'["=", "type", "Class"],]'}
-    url = "#{HOST_URL}/#{PDB_VER}/resources"
+    url = "#{HOST_URL}/pdb/query/#{PDB_VER}/resources"
     resources = get_json(url, puppetdb_resource_query)
   end
 
@@ -61,7 +61,7 @@ class PuppetDB
   end
 
   def get_facts
-    url = "#{HOST_URL}/#{PDB_VER}/facts"
+    url = "#{HOST_URL}/pdb/query/#{PDB_VER}/facts"
     facts = get_json(url)
   end
 end
