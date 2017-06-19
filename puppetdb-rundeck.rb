@@ -7,7 +7,7 @@ require 'yaml'
 require 'sinatra'
 
 # Base URL of the PuppetDB database.  Do not include a trailing slash!
-HOST_URL = 'http://localhost:8080' # Example: 'http://localhost:8080/pdb/query'
+HOST_URL = ENV['PUPPET_URL'] || 'http://localhost:8080' # Example: 'http://localhost:8080/pdb/query'
 # Number of seconds to cache the previous results for
 CACHE_SECONDS = ENV['CACHE_SECONDS'].to_i ||= 1800
 PDB_VER = 'v4'
