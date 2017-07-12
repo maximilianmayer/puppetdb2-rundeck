@@ -93,20 +93,20 @@ class Rundeck
       resources[k]['hostname'] = k
     end
 
-    @puppetdb.facts.each do |d|
-      host     = d['certname']
-      if d['name'] != "hostname"
-        name  = d['name']
-        value = d['value'] if d['name'] != "hostname"
-        resources[host] = Hash.new if !resources.key?(host)
-        resources[host][name] = Hash.new if !resources[host].key?(name)
-        if ( name == 'serialnumber' )
-          resources[host][name] = 'Serial Number ' + value
-        else
-          resources[host][name] = value
-        end
-      end
-    end
+#    @puppetdb.facts.each do |d|
+#      host     = d['certname']
+#      if d['name'] != "hostname"
+#        name  = d['name']
+#        value = d['value'] if d['name'] != "hostname"
+#        resources[host] = Hash.new if !resources.key?(host)
+#        resources[host][name] = Hash.new if !resources[host].key?(name)
+#        if ( name == 'serialnumber' )
+#          resources[host][name] = 'Serial Number ' + value
+#        else
+#          resources[host][name] = value
+#        end
+#      end
+#    end
     resources
   end
 
