@@ -1,5 +1,5 @@
-FROM ruby:2.3.4
-MAINTAINER Maxmilian Mayer <mayer.maximilian@googlemail.com>
+FROM ruby:2.4-alpine3.6
+LABEL maintainer=Maxmilian Mayer <mayer.maximilian@googlemail.com>
 
 # Install gems
 ENV APP_HOME /app
