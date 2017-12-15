@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine3.6
+FROM ruby:2.3-alpine3.4
 LABEL maintainer="Maxmilian Mayer <mayer.maximilian@googlemail.com>"
 
 # Environment settings
@@ -6,14 +6,17 @@ ENV PORT 3000
 ENV PUPPET_URL http://puppet:3030
 ENV CACHE_SECONDS 300
 
-RUN apk add --no-cache ruby-bundler ruby-json
+
 # Install gems
 ENV APP_HOME /app
 ENV HOME /root
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 COPY Gemfile* $APP_HOME/
-RUN bundle install
+RUN apk add --no-cache ruby-bundler build-base && \
+	bundle config --global silence_root_warning 1 &&\
+	bundle install && \
+	apk del build-base
 
 # Upload source
 COPY ./puppetdb-rundeck.rb $APP_HOME
