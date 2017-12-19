@@ -1,5 +1,6 @@
 FROM ruby:2.3-alpine3.4
 LABEL maintainer="Maxmilian Mayer <mayer.maximilian@googlemail.com>"
+LABEL version="0.1.0"
 
 # Environment settings
 ENV PORT 3000
